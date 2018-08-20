@@ -1,4 +1,5 @@
 {
+  "registry": "https://registry.bower.io",
   "name": "kitchens-international",
   "dependencies": {
     "bootstrap": "v4.0.0-alpha.6",
