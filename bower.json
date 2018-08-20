@@ -1,0 +1,8 @@
+{
+  "name": "kitchens-international",
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "showdown": "^1.6.4",
+    "lightbox2": "^2.9.0"
+  }
+}

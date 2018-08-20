@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export COMPOSE_PROJECT_NAME=ki
+
+docker-compose build
+
+docker-compose stop
+docker-compose kill
+docker-compose rm -f
+
+docker-compose create
+docker-compose start
+
+docker ps

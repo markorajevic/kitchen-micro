@@ -1,0 +1,84 @@
+<div class="introduction" style={{background-image model.content.featuredImage.file.url}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.content.heading}}{{/heading-after-scroll}}
+        <hr>
+    </div>
+</div>
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col py-3 sub-heading">
+                {{markdown-to-html model.content.subHeading}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 hidden-sm-down">
+            <div class="p-5">
+                <h2>{{model.content.name}}</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="p-5 text-lg">
+                <div class="hidden-md-up">
+                    <h2>{{model.content.name}}</h2>
+                    <hr>
+                </div>
+                {{markdown-to-html model.content.introduction}}
+            </div>
+        </div>
+    </div>
+</div>
+{{#each sortedServices as |service index|}}
+<div class="background-taupe">
+    <div class="container-fluid">
+        <div class="row">
+        {{#if (odd index)}}
+            <div class="col-12 col-sm-6">
+                {{#slide-in-wrapper position="left"}}
+                <div class="p-5">
+                    <h3>{{service.heading}}</h3>
+                    <hr class="mb-5">
+                    {{markdown-to-html service.introduction}}
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+            <div class="col-12 col-sm-6">
+                {{#slide-in-wrapper position="right"}}
+                <div class="p-5 text-white background-image" style={{background-image service.image.file.url}}>
+                    {{markdown-to-html service.role}}
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+        {{else}}
+            <div class="col-12 col-sm-6">
+                {{#slide-in-wrapper position="left"}}
+                <div class="p-5 text-white background-image" style={{background-image service.image.file.url}}>
+                    {{markdown-to-html service.role}}
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+            <div class="col-12 col-sm-6">
+                {{#slide-in-wrapper position="right"}}
+                <div class="p-5">
+                    <h3>{{service.heading}}</h3>
+                    <hr class="mb-5">
+                    {{markdown-to-html service.introduction}}
+                </div>
+                {{/slide-in-wrapper}}
+            </div>
+        {{/if}}
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-8 py-5 text-center">
+            {{markdown-to-html service.quote}}
+        </div>
+    </div>
+</div>
+{{/each}}

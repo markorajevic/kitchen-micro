@@ -1,0 +1,51 @@
+<div class="introduction" style={{background-image model.featuredImage.file.url}}>
+    <div class="heading">
+        {{#heading-after-scroll class="mb-0"}}{{model.name}}, {{model.location}}{{/heading-after-scroll}}
+    </div>
+</div>
+<div class="container">
+    <div class="row justify-content-center pt-5 pb-4">
+        <div class="col-12 col-sm-10 text-center">
+            <h3>The brief</h3>
+            {{markdown-to-html model.brief}}
+        </div>
+    </div>
+</div>
+<div class="background-taupe mb-5">
+    <section class="container-fluid">
+        <div class="row">
+            {{#each topTwoImages as |image|}}
+            <div class="col-12 col-sm-6 mt-5">
+                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+            </div>
+            {{/each}}
+        </div>
+        <div class="row justify-content-center mt-5">
+            <div class="col-12 col-sm-10 text-center">
+                <h3>Solution</h3>
+                {{markdown-to-html model.design}}
+            </div>
+        </div>
+        <div class="row pb-5">
+            {{#each moreImages as |image|}}
+            <div class="col-12 col-sm-6 mt-5">
+                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+            </div>
+            {{/each}}
+        </div>
+    </section>
+</div>
+<div class="container mb-5">
+    {{#if model.signOff}}
+    <div class="row">
+        <div class="col text-center">
+            {{markdown-to-html model.signOff}}
+        </div>
+    </div>
+    {{/if}}
+    <div class="row {{if model.signOff 'mt-5'}}">
+        <div class="col text-center">
+            {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all case studies{{/link-to}}
+        </div>
+    </div>
+</div>
