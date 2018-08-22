@@ -7,9 +7,9 @@ module.exports = function(environment) {
     rootURL: '/',
     locationType: 'auto',
     contentful: {
-        space: 'nma019atkcmp',
-        accessToken: '65dd74a5495e2c30dbfd87b0eeb98942eada50d4e8b721f3dfc2885ab8493537',
-        previewAccessToken: '38f04962024d568a5983861e7cb3ae999eeed095d8b8f28867e70730c84aa3ad',
+        space: 'l64p7w0iddgu',
+        accessToken: 'ec93061cf82da42b1289840455de750940622c67f2e15fb14a6b068bdc413611',
+        previewAccessToken: 'bcc1c9b0c02cb80406b63f0e657c511562e833aa2669d774db0570ee56450beb',
         usePreviewApi: false
     },
     disqus: {

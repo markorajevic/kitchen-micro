@@ -8,7 +8,7 @@ export default Ember.Route.extend({
     model() {
         return Ember.RSVP.hash({
             content: this.get('store').queryRecord( 'homePage', { 'fields.slug': 'home' } ),
-            leadArticle: this.get('store').queryRecord( 'article', { limit: 1, order: '-fields.publicationDate' } )
+            projects: this.get('store').query('project', { 'order': 'fields.ranking' })
         });
     },
     setupController( controller, model ) {
@@ -17,6 +17,7 @@ export default Ember.Route.extend({
     },
     headData: Ember.inject.service(),
     afterModel(model) {
+        console.log('model.projects', model.projects);
         set(this, 'headData.title', model.content.get('metaTitle'));
         set(this, 'headData.description', model.content.get('metaDescription'));
         if(model.content.get('metaImage').content) {

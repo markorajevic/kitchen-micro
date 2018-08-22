@@ -1,37 +1,83 @@
 <div class="introduction" style={{background-image model.featuredImage.file.url}}>
     <div class="heading">
-        {{#heading-after-scroll class="mb-0"}}{{model.name}}, {{model.location}}{{/heading-after-scroll}}
+        {{#heading-after-scroll class="mb-0 font-weight-medium"}}{{model.name}}, {{model.location}}{{/heading-after-scroll}}
+        <hr>
     </div>
 </div>
+{{!-- BRIEF START --}}
 <div class="container">
     <div class="row justify-content-center pt-5 pb-4">
         <div class="col-12 col-sm-10 text-center">
-            <h3>The brief</h3>
-            {{markdown-to-html model.brief}}
+            {{markdown-to-html model.introText}}
+            <h4 class="text-center font-weight-medium">{{markdown-to-html model.briefHeadline}}</h4>
+            <p>{{markdown-to-html model.brief}}</p>
         </div>
     </div>
 </div>
-<div class="background-taupe mb-5">
-    <section class="container-fluid">
+{{!-- BRIEF END --}}
+
+{{!-- SOLUTION START --}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="d-flex align-items-center img-background full-height img-tinted" style={{background-image model.solutionImage.file.url}}></div>
+        </div>
+    </div>
+    {{#if model.solutionHeadline}}
+    <div class="background-taupe sub-heading-bckg">
         <div class="row">
-            {{#each topTwoImages as |image|}}
+            <div class="col-md-8 py-1 offset-2 mt-2 text-center">
+                <h4 class="text-center font-weight-medium mt-2">{{markdown-to-html model.solutionHeadline}}</h4>
+                <p class=" font-weight-medium">{{markdown-to-html model.solutionText}}</p>
+            </div>
+        </div>
+    </div>
+    {{/if}}
+</div>
+{{!-- SOLUTION END --}}
+
+{{!-- QUOTE START --}}
+<div class="container mt-5">
+    <div class="background-taupe mb-3">
+        <div class="row">
+            <div class="col-6 hidden-xs-down img-background clickable auto-height" style={{background-image model.quote1Image.file.url}}></div>
+            <div class="col-12 col-md-6">
+                <div class="p-5">
+                    {{!-- <h3>{{event.title}}</h3> --}}
+                    {{markdown-to-html model.quote1Content class="article-snippet"}}
+                    {{!-- {{#link-to 'event' event.slug class="btn btn-outline-primary mb-3"}}Read more{{/link-to}}<br> --}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- QUOTE END --}}
+<div class="mb-5">
+    <section class="container">
+        <div class="row">
+        {{#each topTwoImages as |image|}}
             <div class="col-12 col-sm-6 mt-5">
-                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+            </div>
+        {{/each}}
+        </div>
+        <div class="row">
+            {{#each middleImages as |image|}}
+            <div class="col-12 col-md-12 mt-5">
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
             </div>
             {{/each}}
         </div>
-        <div class="row justify-content-center mt-5">
-            <div class="col-12 col-sm-10 text-center">
-                <h3>Solution</h3>
-                {{markdown-to-html model.design}}
-            </div>
-        </div>
-        <div class="row pb-5">
-            {{#each moreImages as |image|}}
+        <div class="row">
+        {{#each downTwoImage as |image|}}
             <div class="col-12 col-sm-6 mt-5">
-                <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}">
+                {{!-- <img class="img-fluid" src="{{image.file.url}}" alt="{{image.title}}"> --}}
+                <div class="d-flex align-items-center img-background full-height" style={{background-image image.file.url}}></div>
             </div>
-            {{/each}}
+        {{/each}}
         </div>
     </section>
 </div>
@@ -45,7 +91,9 @@
     {{/if}}
     <div class="row {{if model.signOff 'mt-5'}}">
         <div class="col text-center">
-            {{#link-to parentRoute class="btn btn-outline-primary"}}Back to all case studies{{/link-to}}
+            {{#contact-form-button class="my-4 btn btn-outline-primary my-4 button-on-gray" form-id="contact-form"}}GET IN TOUCH{{/contact-form-button}}
+            {{!-- {{#link-to parentRoute class="btn btn-outline-primary"}}GET IN TOUCH{{/link-to}} --}}
         </div>
     </div>
 </div>
+{{contact-form-modal id="contact-form"}}

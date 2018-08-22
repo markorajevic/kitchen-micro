@@ -1167,3 +1167,25 @@ $intro-bottom-hugger: rgba($black, .4);
     bottom: 0;
     width: 100%;
 }
+
+.home-container {
+    margin-top: 5rem;
+}
+.font-weight-bold {
+    font-family: 'oswaldextrabold', Helvetica, Arial, sans-serif;
+}
+.font-weight-medium {
+    font-family: 'oswaldmedium', Helvetica, Arial, sans-serif;
+
+}
+.button-on-gray {
+    color: #666;
+    background-image: none;
+    background-color: transparent;
+    border-color: #666;
+    &:hover {
+        color: #fff;
+        background-color: #666;
+        border-color: #666;
+    }
+}
